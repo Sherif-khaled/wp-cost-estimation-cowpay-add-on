@@ -1,0 +1,288 @@
+https://www.youtube.com/watch?v=jPDtod7M_Bc
+https://www.sitepoint.com/using-wp_list_table-to-create-wordpress-admin-tables/
+===========================================================
+lfb_initFormsBackend
+lfb_changeSendEmailLastStep
+lfb_changeCowpayPayMode - New
+lfb_formIsSubscriptionChange
+lfb_updatePaymentType
+lfb_formCowPayChange - New
+====================================
+Tables
+---------------
+add new coulmns to wpefc_forms table
+===========================================
+lfb-admin.php
+----------------
+view_edit_lfb 536
+addForm  6816
+importForms 9313
+exportForms 10033
+
+
+=========================================================
+//            ***************************************************************************
+	                    echo '<div>
+                        <div class="clearfix"></div>
+                    </div>';
+            echo '<div class="col-md-4">';
+            echo '<div id="cowpayFieldsCt">
+                           <div class="form-group" >
+                                <label > ' . __('Use Cowpay payment', 'lfb') . ' </label >
+                                <input type="checkbox"  name="use_cowpay" data-switch="switch" data-on-label="' . __('Yes', 'lfb') . '" data-off-label="' . __('No', 'lfb') . '" />
+                            </div>
+                            <div class="form-group lfb_cowpayField" >
+                                <label > ' . __('Cowpay key ID', 'lfb') . ' </label>
+                                <input type="text" name="cowpay_publishKey" class="form-control" />
+                                <small> ' . __('Enter your Cowpay key ID', 'lfb') . ' </small>
+                            </div>
+                            <div class="form-group lfb_cowpayField" >
+                                <label > ' . __('Cowpay secret key', 'lfb') . ' </label >
+                                <input type="text" name="cowpaypay_secretKey" class="form-control" />
+                                <small> ' . __('Enter your Cowpay secret key', 'lfb') . ' </small>
+                            </div>
+                             <div class="form-group " >
+                                <label > ' . __('Frequency of subscription', 'lfb') . ' </label >
+                                    
+                                <select name="cowpay_subsFrequency" class="form-control"  />
+                                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option>
+                                </select>
+                                <select name="cowpay_subsFrequencyType" class="form-control"/>
+                                    <option value="daily">' . __('day(s)', 'lfb') . '</option>
+                                    <option value="weekly">' . __('week(s)', 'lfb') . '</option>
+                                    <option value="monthly">' . __('month(s)', 'lfb') . '</option>
+                                    <option value="yearly">' . __('year(s)', 'lfb') . '</option>
+                                </select>
+                                <small> ' . __('Payment will be renewed every ... ?', 'lfb') . ' </small>
+                            </div>     
+                            
+                             <div class="form-group lfb_cowpayField" >
+                                <label > ' . __('Currency', 'lfb') . ' </label >
+                                <select name="cowpay_currency" class="form-control" />
+                                    <option value="AED">United Arab Emirates Dirham
+                                    </option>
+                                    <option value="ALL">Albanian Lek
+                                    </option>                                    
+                                    <option value="ARS">Argentine Peso
+                                    </option>
+                                    <option value="AUD">Australian Dollar
+                                    </option>
+                                    <option value="AWG">Aruban Florin
+                                    </option>
+                                    <option value="BBD">Barbadian Dollar
+                                    </option>
+                                    <option value="BDT">Bangladeshi Taka
+                                    </option>
+                                    <option value="BMD">Bermudian Dollar
+                                    </option>
+                                    <option value="BND">Brunei Dollar
+                                    </option>
+                                    <option value="BOB">Bolivian Boliviano
+                                    </option>
+                                    <option value="BWP">Botswana Pula
+                                    </option>
+                                    <option value="BZD">Belize Dollar
+                                    </option>
+                                    <option value="CAD">Canadian Dollar
+                                    </option>
+                                    <option value="CHF">Swiss Franc
+                                    </option>
+                                    <option value="CNY">Chinese Renminbi Yuan
+                                    </option>
+                                    <option value="COP">Colombian Peso
+                                    </option>
+                                    <option value="CRC">Costa Rican Colón
+                                    </option>
+                                    <option value="CUP">Cuban peso
+                                    </option>
+                                    <option value="CZK">Czech Koruna
+                                    </option>
+                                    <option value="DKK">Danish Krone
+                                    </option>
+                                    <option value="DOP">Dominican Peso
+                                    </option>
+                                    <option value="DZD">Algerian Dinar
+                                    </option>
+                                    <option value="EGP">Egyptian Pound
+                                    </option>
+                                    <option value="ETB">Ethiopian Birr
+                                    </option>
+                                    <option value="EUR">Euro
+                                    </option>
+                                    <option value="FJD">Fijian Dollar
+                                    </option>
+                                    <option value="GBP">British Pound
+                                    </option>
+                                    <option value="GIP">Gibraltar Pound
+                                    </option>
+                                    <option value="GMD">Gambian Dalasi
+                                    </option>
+                                    <option value="GTQ">Guatemalan Quetzal
+                                    </option>
+                                    <option value="GYD">Guyanese Dollar
+                                    </option>
+                                    <option value="HKD">Hong Kong Dollar
+                                    </option>
+                                    <option value="HNL">Honduran Lempira
+                                    </option>
+                                    <option value="HRK">Croatian Kuna
+                                    </option>
+                                    <option value="HTG">Haitian Gourde
+                                    </option>
+                                    <option value="HUF">Hungarian Forint
+                                    </option>
+                                    <option value="IDR">Indonesian Rupiah
+                                    </option>
+                                    <option value="ILS">Israeli New Sheqel
+                                    </option>
+                                    <option value="INR">Indian Rupee
+                                    </option>
+                                    <option value="JMD">Jamaican Dollar
+                                    </option>                                    
+                                    <option value="KES">Kenyan Shilling
+                                    </option>
+                                    <option value="KHR">Cambodian Riel
+                                    </option>
+                                    <option value="KYD">Cayman Islands Dollar
+                                    </option>
+                                    <option value="KZT">Kazakhstani Tenge
+                                    </option>
+                                    <option value="LAK">Lao Kip
+                                    </option>
+                                    <option value="LBP">Lebanese Pound
+                                    </option>
+                                    <option value="LKR">Sri Lankan Rupee
+                                    </option>
+                                    <option value="LRD">Liberian Dollar
+                                    </option>
+                                    <option value="LSL">Lesotho loti
+                                    </option>
+                                    <option value="MAD">Moroccan Dirham
+                                    </option>
+                                    <option value="MDL">Moldovan Leu
+                                    </option>
+                                    <option value="MKD">Macedonian denar	
+                                    </option>
+                                    <option value="MNT">Mongolian Tögrög
+                                    </option>
+                                    <option value="MMK">Myanmar kyat	
+                                    </option>
+                                    <option value="MOP">Macanese Pataca
+                                    </option>
+                                    <option value="MUR">Mauritian Rupee
+                                    </option>
+                                    <option value="MVR">Maldivian Rufiyaa
+                                    </option>
+                                    <option value="MWK">Malawian Kwacha
+                                    </option>
+                                    <option value="MXN">Mexican Peso
+                                    </option>
+                                    <option value="MYR">Malaysian Ringgit
+                                    </option>
+                                    <option value="NAD">Namibian Dollar
+                                    </option>
+                                    <option value="NGN">Nigerian Naira
+                                    </option>
+                                    <option value="NIO">Nicaraguan Córdoba
+                                    </option>
+                                    <option value="NOK">Norwegian Krone
+                                    </option>
+                                    <option value="NPR">Nepalese Rupee
+                                    </option>
+                                    <option value="NZD">New Zealand Dollar
+                                    </option>
+                                    <option value="PEN">Peruvian Nuevo Sol
+                                    </option>
+                                    <option value="PGK">Papua New Guinean Kina
+                                    </option>
+                                    <option value="PHP">Philippine Peso
+                                    </option>
+                                    <option value="PKR">Pakistani Rupee
+                                    </option>
+                                    <option value="QAR">Qatari Riyal
+                                    </option>
+                                    <option value="RUB">Russian Ruble
+                                    </option>
+                                    <option value="SAR">Saudi Riyal
+                                    </option>
+                                    <option value="SCR">Seychellois Rupee
+                                    </option>
+                                    <option value="SEK">Swedish Krona
+                                    </option>
+                                    <option value="SGD">Singapore Dollar
+                                    </option>
+                                    <option value="SLL">Sierra Leonean Leone
+                                    </option>
+                                    <option value="SOS">Somali Shilling
+                                    </option>
+                                    <option value="SSP">South Sudanese pound	
+                                    </option>
+                                    <option value="SVC">Salvadoran Colón
+                                    </option>
+                                    <option value="SZL">Swazi Lilangeni
+                                    </option>
+                                    <option value="THB">Thai Baht
+                                    </option>
+                                    <option value="TTD">Trinidad and Tobago Dollar
+                                    </option>
+                                    <option value="TZS">Tanzanian Shilling
+                                    </option>
+                                    <option value="USD">United States Dollar
+                                    </option>
+                                    <option value="UYU">Uruguayan Peso
+                                    </option>
+                                    <option value="UZS">Uzbekistani Som
+                                    </option>
+                                    <option value="YER">Yemeni Rial
+                                    </option>
+                                    <option value="ZAR">South African Rand
+                                    </option>
+                                </select >
+                                <small> ' . __('Choose a currency', 'lfb') . ' </small>
+                            </div>
+                                                   
+
+                             <div class="form-group lfb_cowpayField"  >
+                                <label  class="lfb_imgFieldLabel"> ' . __('Logo image', 'lfb') . ' </label >
+                                <input type="text" name="cowpay_logoImg" class="form-control lfb_fieldImg"   />    
+                                
+                                <a class="btn btn-default btn-circle imageBtn"  data-toggle="tooltip" title="' . __('Upload Image', 'lfb') . '"><span class="fas fa-cloud-upload-alt"></span></a>
+                                <small display: block;> ' . __('Select an image', 'lfb') . ' </small>
+                            </div> 
+                            
+                            <div class="form-group lfb_cowpayField" >
+                                <label > ' . __('Amount to pay', 'lfb') . ' </label >
+                                <select name="cowpay_payMode" class="form-control" />
+                                    <option value="">' . __('Full amount', 'lfb') . '</option>
+                                    <option value="percent">' . __('Percentage of the total price', 'lfb') . '</option>
+                                    <option value="fixed">' . __('Fixed amount', 'lfb') . '</option>
+                                </select>
+                            </div>
+                            <div class="form-group ">
+                                <label > ' . __('Percentage of the total price to pay', 'lfb') . ' </label >
+                                <input type="number" step="0.10" name="cowpay_percentToPay" class="form-control" />
+                                <small> ' . __('Only this percentage will be paid by stripe', 'lfb') . ' </small>
+                            </div>       
+                            <div class="form-group ">
+                                <label > ' . __('Fixed amount to pay', 'lfb') . ' </label >
+                                <input type="number" step="0.10" name="cowpay_fixedToPay" class="form-control" />
+                                <small> ' . __('Only this fixed amount will be paid', 'lfb') . ' </small>
+                            </div>                             
+                        </div> ';
+            echo '</div></div>';
+            //***************************************************************************
+razorpay_percentToPay
+razorpay_payMode
+razorpay_fixedToPay
+
+txt_btnRazorpay
+
+
+                use_cowpay BOOL NOT NULL,
+                razorpay_useSandbox BOOL NOT NULL,
+                razorpay_secretKey VARCHAR(250) NOT NULL,
+                razorpay_publishKey VARCHAR(250) NOT NULL,
+                razorpay_currency VARCHAR(6) NOT NULL DEFAULT 'INR',
+                razorpay_subsFrequency SMALLINT(5) NOT NULL DEFAULT 1,
+                razorpay_subsFrequencyType VARCHAR(16) NOT NULL DEFAULT 'monthly', 
+                razorpay_logoImg VARCHAR(250) NOT NULL DEFAULT '" . esc_url(trailingslashit(plugins_url('/assets/', __FILE__))) . "img/creditCard@2x.png', 
